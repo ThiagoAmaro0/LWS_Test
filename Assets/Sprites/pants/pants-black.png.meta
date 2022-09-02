@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -450,7 +450,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pants-black_15: -1152748430
+      pants-black_9: -503113713
       pants-black_4: 600459021
       pants-black_2: -1991599993
       pants-black_12: 547090784
@@ -465,7 +465,7 @@ TextureImporter:
       pants-black_6: -1157652862
       pants-black_13: 1473740341
       pants-black_11: 103914095
-      pants-black_9: -503113713
+      pants-black_15: -1152748430
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
