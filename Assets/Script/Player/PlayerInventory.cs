@@ -12,7 +12,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private Item _hair;
     [SerializeField] private Item teste;
     private List<Item> _inventory;
-    private int _money;
+    private int _money = 100;
 
     public Action updateOutfitAction;
     public static PlayerInventory instance;
@@ -27,6 +27,11 @@ public class PlayerInventory : MonoBehaviour
             _inventory.Add(teste);
 
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
     public Item[] GetInventory()
@@ -91,6 +96,20 @@ public class PlayerInventory : MonoBehaviour
     public void DiscardItem(Item item)
     {
         _inventory.Remove(item);
+    }
+
+    public int GetMoney()
+    {
+        return _money;
+    }
+
+    public void AddMoney(int value)
+    {
+        _money += value;
+    }
+    public void AddItem(Item item)
+    {
+        _inventory.Add(item);
     }
 
 }

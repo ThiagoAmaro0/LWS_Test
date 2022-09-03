@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class InventoryHUD : MonoBehaviour
 {
+    [SerializeField] private GameObject _pausePanel;
     [SerializeField] private Transform _inventoryPanel;
     [SerializeField] private GameObject _itemPanel;
+    [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _descText;
     [SerializeField] private Button _discardButton;
@@ -24,6 +26,7 @@ public class InventoryHUD : MonoBehaviour
     private void Update()
     {
         UpdatePreview();
+        _moneyText.text = PlayerInventory.instance.GetMoney() + "";
         Item[] _inventory = PlayerInventory.instance.GetInventory();
         for (int i = 0; i < _inventoryPanel.childCount; i++)
         {
@@ -35,7 +38,7 @@ public class InventoryHUD : MonoBehaviour
             {
                 btn.interactable = true;
                 icon.enabled = true;
-                icon.sprite = _inventory[i].sprite;
+                icon.sprite = _inventory[i].icon;
                 equipped.enabled = PlayerInventory.instance.IsEquiped(_inventory[i]);
             }
             else
@@ -132,6 +135,19 @@ public class InventoryHUD : MonoBehaviour
     public void DiscardItem()
     {
         PlayerInventory.instance.DiscardItem(_item);
+        _itemPanel.SetActive(false);
+    }
+
+    public void Pause()
+    {
+        _pausePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Unpause()
+    {
+        _pausePanel.SetActive(false);
+        Time.timeScale = 1;
         _itemPanel.SetActive(false);
     }
 
