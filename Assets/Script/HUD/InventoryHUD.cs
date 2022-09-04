@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class InventoryHUD : MonoBehaviour
 {
     [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private Transform[] _hotbar;
     [SerializeField] private Transform _inventoryPanel;
     [SerializeField] private GameObject _itemPanel;
     [SerializeField] private TextMeshProUGUI _moneyText;
@@ -47,6 +48,12 @@ public class InventoryHUD : MonoBehaviour
                 icon.enabled = false;
                 equipped.enabled = false;
             }
+
+
+        }
+        for (int i = 0; i < _hotbar.Length; i++)
+        {
+            _hotbar[i].localScale = i == PlayerFarm.instance.GetIndex() ? Vector3.one * 2 : Vector3.one;
         }
 
     }

@@ -17,4 +17,4 @@ MonoBehaviour:
   value: 25
   sprite: {fileID: 104643023, guid: eca06b4a1f5d57e468f3534e105d5e92, type: 3}
   icon: {fileID: 21300000, guid: 4f459877265d7a245adc0e44e9a68faf, type: 3}
-  type: 4
+  type: 2

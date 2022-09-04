@@ -10,7 +10,11 @@ public class House : Interactable
     {
         if (_stay)
         {
-            PopupManager.instance.ShowPopup("Do you Want to sleep?", () => nextDay?.Invoke(), true);
+            PopupManager.instance.ShowPopup("Do you Want to sleep?", () => FadeManager.instance.Fade(false, () =>
+            {
+                nextDay?.Invoke();
+                FadeManager.instance.Fade(true, () => { });
+            }), true);
         }
     }
 }

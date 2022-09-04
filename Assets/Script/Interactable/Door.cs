@@ -11,8 +11,11 @@ public class Door : Interactable
     {
         if (_stay && Time.timeScale != 0)
         {
-            _other.transform.position = _startPos;
-            SceneManager.LoadScene(_scene);
+            FadeManager.instance.Fade(false, () =>
+            {
+                _other.transform.position = _startPos;
+                SceneManager.LoadScene(_scene);
+            });
         }
     }
 }

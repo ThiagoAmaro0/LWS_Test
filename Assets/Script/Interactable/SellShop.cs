@@ -7,6 +7,8 @@ using UnityEngine;
 public class SellShop : Interactable
 {
     [SerializeField] private Item[] _sellItems;
+    [SerializeField] private string[] _dialogMsgs;
+    [SerializeField] private string _popupMsg;
     private static bool _intro;
     public override void OnInteract()
     {
@@ -14,12 +16,12 @@ public class SellShop : Interactable
         {
             if (_intro)
             {
-                PopupManager.instance.ShowPopup("Do you want to sell all your crops?", Sell, true);
+                PopupManager.instance.ShowPopup(_popupMsg, Sell, true);
             }
             else
             {
                 _intro = true;
-                DialogSystem.instance.StartDialog(new string[] { "Hi, i'm the crop buyer", "I love Tomatoes and potatoes, o would buy all the potatoes if i could" });
+                DialogSystem.instance.StartDialog(_dialogMsgs);
             }
         }
     }

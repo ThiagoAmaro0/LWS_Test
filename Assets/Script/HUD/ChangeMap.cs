@@ -14,9 +14,12 @@ public class ChangeMap : MonoBehaviour
     {
         if (other.TryGetComponent<PlayerMovement>(out PlayerMovement _inv))
         {
-            changeSceneAction?.Invoke(_scene);
-            other.transform.position = _startPos;
-            SceneManager.LoadScene(_scene);
+            FadeManager.instance.Fade(false, () =>
+            {
+                changeSceneAction?.Invoke(_scene);
+                other.transform.position = _startPos;
+                SceneManager.LoadScene(_scene);
+            });
         }
     }
 }

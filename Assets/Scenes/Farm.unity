@@ -552,11 +552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1858241034}
-  _hotbar:
-  - {fileID: 463182395}
-  - {fileID: 1123642157}
-  - {fileID: 264835474}
-  - {fileID: 1087357365}
   _harvestPrefab: {fileID: 799309780427626651, guid: 9a3b291e0bcb5684ebc70bd9101b8f06, type: 3}
   _potato: {fileID: 11400000, guid: d9bfd94ca599648448e68a55ff14c478, type: 2}
   _Tomato: {fileID: 11400000, guid: 23d801cc16ded3347a46fb981febbd3d, type: 2}
@@ -4442,6 +4437,10 @@ MonoBehaviour:
   _sellItems:
   - {fileID: 11400000, guid: ee974838a49903d408d65c8529cfb49d, type: 2}
   - {fileID: 11400000, guid: 65736942b42b08e40b378a7163da3e86, type: 2}
+  _dialogMsgs:
+  - Hi, i'm the crop buyer.
+  - I love Tomatoes and potatoes, i would buy all the potatoes if i could.
+  _popupMsg: Do you want to sell all your crops?
 --- !u!212 &4443442671991018712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4765,6 +4764,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975265731548915558, guid: 3084529d5d53f544b8532db7f8f6d7d7, type: 3}
+      propertyPath: _hotbar.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975265731548915558, guid: 3084529d5d53f544b8532db7f8f6d7d7, type: 3}
+      propertyPath: _hotbar.Array.data[0]
+      value: 
+      objectReference: {fileID: 463182395}
+    - target: {fileID: 8975265731548915558, guid: 3084529d5d53f544b8532db7f8f6d7d7, type: 3}
+      propertyPath: _hotbar.Array.data[1]
+      value: 
+      objectReference: {fileID: 1123642157}
+    - target: {fileID: 8975265731548915558, guid: 3084529d5d53f544b8532db7f8f6d7d7, type: 3}
+      propertyPath: _hotbar.Array.data[2]
+      value: 
+      objectReference: {fileID: 264835474}
+    - target: {fileID: 8975265731548915558, guid: 3084529d5d53f544b8532db7f8f6d7d7, type: 3}
+      propertyPath: _hotbar.Array.data[3]
+      value: 
+      objectReference: {fileID: 1087357365}
     - target: {fileID: 8975265731629958534, guid: 3084529d5d53f544b8532db7f8f6d7d7, type: 3}
       propertyPath: m_Camera
       value: 
