@@ -13,5 +13,5 @@ public class Item : ScriptableObject
 
     public ItemType type;
 
-    public enum ItemType { hat, shirt, pants, shoes, haircut }
+    public enum ItemType { hat, shirt, pants, shoes, haircut, crop }
 }

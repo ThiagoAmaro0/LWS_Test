@@ -10,7 +10,6 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private Item _pants;
     [SerializeField] private Item _shoes;
     [SerializeField] private Item _hair;
-    [SerializeField] private Item teste;
     private List<Item> _inventory;
     private int _money = 100;
 
@@ -24,7 +23,6 @@ public class PlayerInventory : MonoBehaviour
             _inventory.Add(_shirt);
             _inventory.Add(_pants);
             _inventory.Add(_shoes);
-            _inventory.Add(teste);
 
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -107,9 +105,14 @@ public class PlayerInventory : MonoBehaviour
     {
         _money += value;
     }
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
-        _inventory.Add(item);
+        if (_inventory.Count < 16)
+        {
+            _inventory.Add(item);
+            return true;
+        }
+        return false;
     }
 
 }

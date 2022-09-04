@@ -10,34 +10,19 @@ public class Shop : Interactable
     {
         if (_stay && Time.timeScale != 0)
         {
-            PopupManager.instance.ShowPopup($"Do you want buy {_item.itemName} for ${_item.value}?", Buy,
+            PopupManager.instance.ShowPopup($"Do you want to buy {_item.itemName} for ${_item.value}?", Buy,
             PlayerInventory.instance.GetMoney() >= _item.value && !PlayerInventory.instance.GetInventory().Contains(_item));
         }
     }
 
     public void Buy()
     {
-        PlayerInventory.instance.AddMoney(-_item.value);
-
-        switch (_item.type)
+        bool haveSpace = false;
+        if (_item.type != Item.ItemType.crop)
         {
-            case Item.ItemType.hat:
-                PlayerInventory.instance.AddItem(_item);
-                break;
-            case Item.ItemType.haircut:
-                PlayerInventory.instance.AddItem(_item);
-                break;
-            case Item.ItemType.shirt:
-                PlayerInventory.instance.AddItem(_item);
-                break;
-            case Item.ItemType.pants:
-                PlayerInventory.instance.AddItem(_item);
-                break;
-            case Item.ItemType.shoes:
-                PlayerInventory.instance.AddItem(_item);
-                break;
-            default:
-                break;
+            haveSpace = PlayerInventory.instance.AddItem(_item);
         }
+        if (haveSpace)
+            PlayerInventory.instance.AddMoney(-_item.value);
     }
 }

@@ -4,41 +4,61 @@ using UnityEngine;
 
 public class Harvest : Interactable
 {
+    [SerializeField] private Sprite _holeSprite;
     private Crop _crop;
 
     private bool _watered;
 
     private int _days;
-    private Sprite _holeSprite;
     private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        House.nextDay += Grow;
+        ChangeMap.changeSceneAction += Hide;
+    }
+
+    private void OnDisable()
+    {
+        House.nextDay -= Grow;
+        ChangeMap.changeSceneAction -= Hide;
+    }
+
+    private void Hide(string scene)
+    {
+        _spriteRenderer.enabled = scene == "Farm";
     }
 
     public void Water()
     {
         _watered = true;
-        print("CHUA");
+        _spriteRenderer.color = new Color(0, 1, 1);
     }
 
     public void Plant(Crop crop)
     {
-        print("Plantou");
-        _crop = crop;
-        UpdateSprite();
+        if (_crop == null)
+        {
+            _crop = crop;
+            UpdateSprite();
+        }
     }
 
     public void Grow()
     {
         if (_watered && _days < _crop.stages.Length - 1)
         {
-            print("ZZZ");
-            _watered = false;
             _days++;
             UpdateSprite();
         }
+        _watered = false;
+        _spriteRenderer.color = new Color(1, 1, 1);
     }
 
     private void UpdateSprite()
@@ -48,13 +68,17 @@ public class Harvest : Interactable
 
     public override void OnInteract()
     {
-        if (_days == _crop.stages.Length - 1)
-        {
-            print("Pronto");
-        }
-        else
-        {
-            print("Crescendo");
-        }
+
+        if (_crop != null && _stay)
+            if (_days == _crop.stages.Length - 1)
+            {
+                bool haveSpace = PlayerInventory.instance.AddItem(_crop.cropItem);
+                if (haveSpace)
+                    Destroy(gameObject);
+            }
+            else
+            {
+                DialogSystem.instance.StartDialog(new string[] { $"Will be ready to harvest in {_crop.stages.Length - _days - 1} days" });
+            }
     }
 }

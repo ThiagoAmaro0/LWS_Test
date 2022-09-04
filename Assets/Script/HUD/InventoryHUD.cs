@@ -48,6 +48,7 @@ public class InventoryHUD : MonoBehaviour
                 equipped.enabled = false;
             }
         }
+
     }
 
     public void UpdatePreview()
@@ -81,6 +82,7 @@ public class InventoryHUD : MonoBehaviour
         _equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
         _equipButton.interactable = !equipped;
         _discardButton.interactable = !equipped;
+        _equipButton.gameObject.SetActive(true);
         if (_item.type == Item.ItemType.hat)
         {
             _equipButton.interactable = true;
@@ -92,6 +94,10 @@ public class InventoryHUD : MonoBehaviour
             {
                 _equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
             }
+        }
+        else if (_item.type == Item.ItemType.crop)
+        {
+            _equipButton.gameObject.SetActive(false);
         }
     }
 

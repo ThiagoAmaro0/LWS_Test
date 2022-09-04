@@ -198,17 +198,6 @@
                     "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5c8fe89d-a3c4-4188-9403-aaca0e3f9f97",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Use",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },

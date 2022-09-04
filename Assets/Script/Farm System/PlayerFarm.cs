@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerFarm : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
+    [SerializeField] private Transform[] _hotbar;
     [SerializeField] private GameObject _harvestPrefab;
     [SerializeField] private Crop _potato;
     [SerializeField] private Crop _Tomato;
@@ -14,7 +15,12 @@ public class PlayerFarm : MonoBehaviour
     public void OnScroll(InputValue value)
     {
         int _scroll = (int)value.Get<Vector2>().normalized.y;
-        index = (Tool)Mathf.Clamp((int)index + _scroll, 0, 3);
+        index = (Tool)Mathf.Clamp((int)index + _scroll, 0, _hotbar.Length - 1);
+
+        for (int i = 0; i < _hotbar.Length; i++)
+        {
+            _hotbar[i].localScale = i == (int)index ? Vector3.one * 2 : Vector3.one;
+        }
     }
 
     public void OnUse()
@@ -37,24 +43,31 @@ public class PlayerFarm : MonoBehaviour
             case Tool.Hoe:
                 if (!result)
                     Instantiate(_harvestPrefab, pos, Quaternion.identity);
+                else if (result.TryGetComponent<Harvest>(out Harvest _harvest))
+                {
+                    Destroy(_harvest.gameObject);
+                }
                 break;
             case Tool.WaterCan:
-                if (result.TryGetComponent<Harvest>(out Harvest _harvest))
-                {
-                    _harvest.Water();
-                }
+                if (result)
+                    if (result.TryGetComponent<Harvest>(out Harvest _harvest))
+                    {
+                        _harvest.Water();
+                    }
                 break;
             case Tool.Potato:
-                if (result.TryGetComponent<Harvest>(out _harvest))
-                {
-                    _harvest.Plant(_potato);
-                }
+                if (result)
+                    if (result.TryGetComponent<Harvest>(out Harvest _harvest))
+                    {
+                        _harvest.Plant(_potato);
+                    }
                 break;
             case Tool.Tomato:
-                if (result.TryGetComponent<Harvest>(out _harvest))
-                {
-                    _harvest.Plant(_Tomato);
-                }
+                if (result)
+                    if (result.TryGetComponent<Harvest>(out Harvest _harvest))
+                    {
+                        _harvest.Plant(_Tomato);
+                    }
                 break;
         }
 
