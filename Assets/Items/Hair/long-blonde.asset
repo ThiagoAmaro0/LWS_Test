@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ab5956ad8e130940944d23638262963, type: 3}
-  m_Name: short-brown
+  m_Name: long-blonde
   m_EditorClassIdentifier: 
-  itemName: Short Brown Hair
+  itemName: Long Blonde Hair
   description: 
-  value: 0
-  sprite: {fileID: -1022751789, guid: 653df3f8e335fbe448397c583e3e6823, type: 3}
-  icon: {fileID: 21300000, guid: 603daf68ef180524aa3efbdc3863d4f2, type: 3}
+  value: 30
+  sprite: {fileID: 1033429128, guid: 5a886d72fb759c44981d5f9e713ba005, type: 3}
+  icon: {fileID: 21300000, guid: c019ddc7f566f9a46af88e7e0cc5f0fc, type: 3}
   type: 6

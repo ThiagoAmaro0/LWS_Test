@@ -6,14 +6,15 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] protected GameObject inputIcon;
+    protected Transform _other;
     protected bool _stay;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<PlayerInventory>(out PlayerInventory _inv))
         {
             _stay = true;
+            _other = other.transform;
             inputIcon.SetActive(true);
-            print("STAY");
         }
     }
 
@@ -22,8 +23,8 @@ public abstract class Interactable : MonoBehaviour
         if (other.TryGetComponent<PlayerInventory>(out PlayerInventory _inv))
         {
             _stay = false;
+            _other = null;
             inputIcon.SetActive(false);
-            print("STAY");
         }
     }
 

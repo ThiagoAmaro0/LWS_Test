@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab5956ad8e130940944d23638262963, type: 3}
+  m_Name: shirt-green
+  m_EditorClassIdentifier: 
+  itemName: Green Shirt
+  description: An old green shirt, but it still smell good.
+  value: 25
+  sprite: {fileID: -272741292, guid: 13e3b3fbf18d97f478e0b05086b1c6e2, type: 3}
+  icon: {fileID: 21300000, guid: f1b37d73d6b0cf74a872c2e606994279, type: 3}
+  type: 3

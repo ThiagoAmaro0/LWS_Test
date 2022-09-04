@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class Door : Interactable
 {
     [SerializeField] private string _scene;
+    [SerializeField] private Vector2 _startPos;
     public override void OnInteract()
     {
-        print("LAU");
-        if (_stay)
+        if (_stay && Time.timeScale != 0)
         {
+            _other.transform.position = _startPos;
             SceneManager.LoadScene(_scene);
         }
     }

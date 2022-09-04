@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab5956ad8e130940944d23638262963, type: 3}
   m_Name: hat-purple
   m_EditorClassIdentifier: 
-  itemName: Puple Hat
+  itemName: Purple Hat
   description: A cute purple hat, useful to warm your head.
-  value: 0
+  value: 25
   sprite: {fileID: 1553681910, guid: ba9d1f8a26f3a514295b6f6fd18bd271, type: 3}
   icon: {fileID: 21300000, guid: 8085b98bc2168c844a58a701b69fb6ac, type: 3}
   type: 2

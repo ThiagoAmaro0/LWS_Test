@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/City.unity
     guid: 60cc5754ce394fa43859a80c45ca486c
+  - enabled: 1
+    path: Assets/Scenes/FarmShop.unity
+    guid: 20aa464b173032b49a64b54cb29279e1
+  - enabled: 1
+    path: Assets/Scenes/FancyShop.unity
+    guid: 5ee3fb3b4435071469f8a937b86e0d69
   m_configObjects: {}
