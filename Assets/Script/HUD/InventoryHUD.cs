@@ -140,6 +140,10 @@ public class InventoryHUD : MonoBehaviour
                 _itemPanel.SetActive(false);
                 PlayerInventory.instance.SetShoes(_item);
                 break;
+            case Item.ItemType.haircut:
+                _itemPanel.SetActive(false);
+                PlayerInventory.instance.SetHair(_item);
+                break;
             default:
                 break;
         }

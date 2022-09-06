@@ -2804,6 +2804,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pausePanel: {fileID: 8975265732051412398}
+  _hotbar:
+  - {fileID: 1884699676087692553}
+  - {fileID: 2423486570885312270}
+  - {fileID: 7914836125627580492}
+  - {fileID: 6085232928252261801}
   _inventoryPanel: {fileID: 8975265731714915038}
   _itemPanel: {fileID: 8975265732523899238}
   _moneyText: {fileID: 8975265731009387041}
@@ -3013,10 +3018,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

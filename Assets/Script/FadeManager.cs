@@ -28,7 +28,7 @@ public class FadeManager : MonoBehaviour
         float dir = target - _fadeImage.color.a;
         while (_fadeImage.color.a != target)
         {
-            _fadeImage.color += new Color(0, 0, 0, dir / 120);
+            _fadeImage.color += new Color(0, 0, 0, dir / 30);
             if (_fadeImage.color.a < 0)
                 _fadeImage.color = new Color(0.22f, 0.22f, 0.22f, 0);
             if (_fadeImage.color.a > 1)
